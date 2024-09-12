@@ -4,6 +4,7 @@ from interface import UserInterface
 from user import User
 from account import Account
 from auth import Auth
+from exceptions import ExcessInvalidLoginAttempts
 
 
 def main():
@@ -30,6 +31,9 @@ def main():
             failedAttempt = True
         else:
             break
+    if login_attempts == 3:
+        raise ExcessInvalidLoginAttempts
+        exit()
 
     #register UI
     ui.register_command("deposit", user.deposit, "deposit [accountNumber] [amount] - deposit an amount into an account")

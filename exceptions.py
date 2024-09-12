@@ -12,3 +12,7 @@ class InvalidAccountNumberException(BankingException):
 class InvalidNumberException(BankingException):
     def message(self):
         return "An error occurred: Invalid Amount to Deposit, please enter a number above 0."
+    
+class ExcessInvalidLoginAttempts(BankingException):
+    def message(self):
+        return "An error occurred: Too Many Failed Login Attempts"

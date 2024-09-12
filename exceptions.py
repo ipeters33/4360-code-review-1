@@ -16,3 +16,7 @@ class InvalidNumberException(BankingException):
 class ExcessInvalidLoginAttempts(BankingException):
     def message(self):
         return "An error occurred: Too Many Failed Login Attempts"
+    
+class InvalidTransferAmount(BankingException):
+    def message(self):
+        return "An error occurred: Amount to transfer must be more than zero"

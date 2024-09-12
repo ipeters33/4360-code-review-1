@@ -12,17 +12,17 @@ def main():
     message = Message()
     ui = UserInterface()
     auth = Auth()
-
-    os.system('cls')
-    message.print("Welcome to the bank of Py!")
     
     #authenticate user
     login_attempts = 0
     failedAttempt = False
     while login_attempts < 3:
-        if failedAttempt:
+        os.system('cls')
+        if not failedAttempt:
+            message.print("Welcome to the bank of Py!")
+            message.print("please login to continue.")
+        else:
             message.print("please try again")
-        message.print("please login to continue.")
 
         userName = input("Username: ")
         password = input("Password: ")

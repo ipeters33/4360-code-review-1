@@ -14,15 +14,15 @@ class Auth:
             users = json.load(file)['users']
 
         for user in users:
-            if user['name'] == username:
-                if user['password'] == password:
-                    accounts = {}
-                    for account in user['accounts']:
-                        accounts[account['accountNumber']] = Account(account['balance'])
+            if user['name'] == username and user['password'] == password:
+                    accounts = self.get_accounts(user['accounts'])
                     return User(user['name'], accounts)
-                else:
-                    message.print("name or password not found")
             else:
                 message.print("name or password not found")
-            
         return None
+    
+    def get_accounts(self, userAccounts):
+        accounts = {}
+        for account in userAccounts:
+            accounts[account['accountNumber']] = Account(account['balance'])
+

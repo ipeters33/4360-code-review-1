@@ -1,4 +1,5 @@
 import os
+import sys
 from message import Message
 from interface import UserInterface
 from user import User
@@ -35,7 +36,7 @@ def main():
             break
     if login_attempts == 3:
         raise ExcessInvalidLoginAttempts
-        exit()
+        sys.exit(1)
 
     #register UI
     ui.register_command("deposit", user.deposit, "deposit [accountNumber] [amount] - deposit an amount into an account")
